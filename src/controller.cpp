@@ -1,7 +1,7 @@
 #include "ros/ros.h"
 #include "geometry_msgs/Twist.h"
 #include <sensor_msgs/LaserScan.h>
-#include "second_assignment/Speedup.h"
+#include "laserscanner_robot_ROS/Speedup.h"
 
 
 ros::Publisher pub; // a public publisher is defined
@@ -20,7 +20,7 @@ void clbk_fcn(const sensor_msgs::LaserScan::ConstPtr& msg){
 
  //............................ Inital Values............................
 
-    int d_th=5; //default threshold radious
+    int d_th=5;           //default threshold radious
     float min_len=d_th;  //inital minimum radious
     float front_side=0;  //front-side distance
     float left_side=0;   //left-side distance
@@ -29,19 +29,19 @@ void clbk_fcn(const sensor_msgs::LaserScan::ConstPtr& msg){
 
  //...........................Laser scanner configuration................
 
-    for (int k=305; k<=405; k++){
+    for (int k=300; k<=400; k++){
         if(msg->ranges[k]<min_len) min_len=msg->ranges[k];
     }
     front_side=min_len;                      //set the minimum distance for front side
     min_len=d_th;                           //reset the minimum length
 
-    for (int k=0; k<=105; k++){
+    for (int k=0; k<=100; k++){
         if(msg->ranges[k]<min_len) min_len=msg->ranges[k];
     }
     right_side=min_len;                   //set the minimum distance for right side
     min_len=d_th;                        //reset the minimum length
 
-    for (int k=615; k<=715; k++){
+    for (int k=610; k<=710; k++){
         if(msg->ranges[k]<min_len) min_len=msg->ranges[k];
     }
     left_side=min_len;                  //set the minimum distance for left side
@@ -72,11 +72,11 @@ void clbk_fcn(const sensor_msgs::LaserScan::ConstPtr& msg){
 }
 
 
-bool clbk_speedup(second_assignment::Speedup::Request &req, second_assignment::Speedup::Response &res){
+bool clbk_speedup(laserscanner_robot_ROS::Speedup::Request &req, laserscanner_robot_ROS::Speedup::Response &res){
 
     /*
-    This is a callback function for our arbitary service. This service gets two character as
-    inputs, and outputs the desiered speed chosen by user.The maximum speed is assumed 5.0 and
+    This is a callback function for our arbitrary service. This service gets two character as
+    inputs, and outputs the desired speed chosen by user.The maximum speed is assumed 5.0 and
     the minimum is 0.0 (which prohibits the robot to go backward).  
 
 

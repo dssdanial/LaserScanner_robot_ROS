@@ -3,20 +3,22 @@
 #include <sensor_msgs/LaserScan.h>
 #include "std_srvs/Empty.h"
 #include <std_msgs/String.h>
-#include "second_assignment/Speedup.h"
+#include "laserscanner_robot_ROS/Speedup.h"
+#include <nav_msgs/Odometry.h>
+
 
 int main(int argc, char **argv){
 
     ros::init(argc, argv, "Robot_Services");
     ros::NodeHandle nh;
     ros::ServiceClient client1 = nh.serviceClient<std_srvs::Empty>("reset_positions");
-    ros::ServiceClient client2 = nh.serviceClient<second_assignment::Speedup>("speed_up");
+    ros::ServiceClient client2 = nh.serviceClient<laserscanner_robot_ROS::Speedup>("speed_up");
+    ros::Subscriber sub=nh.subscribe("odom",1,clbk_subs);
     ros::Rate loop_rate(10);
 
     std_srvs::Empty reset;
-    second_assignment::Speedup speedup;
+    laserscanner_robot_ROS::Speedup speedup;
     std::string inputString;
-
 
     while(ros::ok()){
 
@@ -55,5 +57,5 @@ int main(int argc, char **argv){
         loop_rate.sleep();    //keep the loop rate at 10 Hz
     }
 
-
+    ros::spin();
 }
