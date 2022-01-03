@@ -154,7 +154,7 @@ Also, this node can be consider as a **Subscriber** from the ***/odom*** topic t
 
 # Simulation
 The simulation and results are illustrated in the following video:
-[! (https://github.com/dssdanial/LaserScanner_robot_ROS/blob/main/world/tracciato.png)] (https://youtu.be/MY6nIdYGh3Q)
+[! watch (https://github.com/dssdanial/LaserScanner_robot_ROS/blob/main/world/tracciato.png)](https://youtu.be/MY6nIdYGh3Q)
 
 ## Further improvements
 To improve performance of the robot movements, some extra conditions can be added, which can make the movements more smooth, especially when higher speed level is requested.  
