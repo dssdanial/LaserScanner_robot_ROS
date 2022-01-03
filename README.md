@@ -40,7 +40,9 @@ By sending the command "q", whole nodes will be killed and exited successfully.
 
 The whole block diagram of the running nodes and services in this project is illustrated as follows:
 
-PIC
+<p align="center">
+<img src="https://github.com/dssdanial/LaserScanner_robot_ROS/blob/main/world/rosgraph.png">
+</p>
 
 
  **Description:**
@@ -151,8 +153,8 @@ Also, this node can be consider as a **Subscriber** from the ***/odom*** topic t
 
 
 # Simulation
-
-https://youtu.be/MY6nIdYGh3Q
+The simulation and results are illustrated in the following video:
+[! (https://github.com/dssdanial/LaserScanner_robot_ROS/blob/main/world/tracciato.png)] (https://youtu.be/MY6nIdYGh3Q)
 
 ## Further improvements
 To improve performance of the robot movements, some extra conditions can be added, which can make the movements more smooth, especially when higher speed level is requested.  
