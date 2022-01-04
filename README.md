@@ -1,7 +1,7 @@
 ﻿# ROS robot simulation based on a Laser scanner! 
 
 
-This is a robot simulation in a circular path (like a racing path) which benefits from the Robot Operating System **(ROS)**. The robot is equipped with a laser scanner in front of the robot which provide distances from different obstacles.  
+This is a robot simulation in a circular path (like a racing path) that benefits from the Robot Operating System **(ROS)**. The robot is equipped with a laser scanner in front of the robot which provides distances from different obstacles.  
 <p align="center">
 <img src="https://github.com/dssdanial/LaserScanner_robot_ROS/blob/main/world/tracciato.png" width="200" height="158"> 
 
