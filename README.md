@@ -1,6 +1,9 @@
-﻿# ROS robot simulation based on a Laser scanner!
+﻿# ROS robot simulation based on a Laser scanner! 
+
 
 This is a robot simulation in a circular path (like a racing path) which benefits from the Robot Operating System **(ROS)**. The robot is equipped with a laser scanner in front of the robot which provide distances from different obstacles.  
+<p align="center">
+<img src="https://github.com/dssdanial/LaserScanner_robot_ROS/blob/main/world/tracciato.png" width="200" height="158"> 
 
 # Aims of this project!
 
@@ -154,7 +157,11 @@ Also, this node can be consider as a **Subscriber** from the ***/odom*** topic t
 
 # Simulation
 The simulation and results are illustrated in the following video:
-[! watch (https://github.com/dssdanial/LaserScanner_robot_ROS/blob/main/world/tracciato.png)](https://youtu.be/MY6nIdYGh3Q)
+<p align="center">
+<img src="https://github.com/dssdanial/LaserScanner_robot_ROS/blob/main/world/tracciato.png" width="285 height="328"> 
+</p>
+                              Watch it on the YouTube channel: https://youtu.be/MY6nIdYGh3Q
 
+														    
 ## Further improvements
-To improve performance of the robot movements, some extra conditions can be added, which can make the movements more smooth, especially when higher speed level is requested.  
+To improve performance of the robot movements, some extra conditions can be added, which can make the movements smoother, especially when higher speed level is requested.  
