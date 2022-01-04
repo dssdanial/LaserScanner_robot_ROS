@@ -1,18 +1,18 @@
 ﻿# ROS robot simulation based on a Laser scanner! 
 
 
-This is a robot simulation in a circular path (like a racing path) that benefits from the Robot Operating System **(ROS)**. The robot is equipped with a laser scanner in front of the robot which provides distances from different obstacles.  
+This is a robot simulation in a circular path (like a racing path) that benefits from the Robot Operating System **(ROS)**. The robot is equipped with a laser scanner in front of the robot which provides distances from different obstacles. 
 <p align="center">
 <img src="https://github.com/dssdanial/LaserScanner_robot_ROS/blob/main/world/tracciato.png" width="200" height="158"> 
 
 # Aims of this project!
 
-In this project, it is supposed to move and control this robot autonomously without any collision with the walls surrounded the whole complex path. Meanwhile, it is also essential to have a simple user interface to communicate the robot in the case of increase/decrease the speed, resetting the robot position, etc. In addition, it is worth mentioning that all requirements should not be considered in more that two nodes. 
+In this project, it is supposed to move and control this robot autonomously without any collision with the walls surrounding the whole complex path. Meanwhile, it is also essential to have a simple user interface to communicate with the robot in the case of increasing/decreasing the speed, resetting the robot position, etc. In addition, it is worth mentioning that all requirements should not be considered in more than two nodes. 
 
 ## How to run and compile...! 
 
 In this project, since multiple terminals and the user interface were needed to be run, a launch file is considered. In order to run and compile the project just do as follows:
-
+	
 __`roslaunch laserscanner_robot_ROS launchfile.launch`__
 ```xml
 <launch>
@@ -69,7 +69,7 @@ The whole block diagram of the running nodes and services in this project is ill
 ros::Publisher pub=nh.advertise<geometry_msgs::Twist>("/cmd_vel",1);
 ros::Subscriber sub=nh.subscribe("/base_scan",1, clbk_fcn);
 ```
-This node is defined as both publisher and subscriber. To control the robot, linear and angular velocity will be published through ***/cmd_vel*** topic. Also, to configure and obtaining the distances from different obstacles during the complex path, the robot subscribes from ***/base_scan*** topic which provide the laser details. 
+This node is defined as both publisher and subscriber. To control the robot, linear and angular velocity will be published through ***/cmd_vel*** topic. Also, to configure and obtain the distances from different obstacles during the complex path, the robot subscribes from ***/base_scan*** topic which provides the laser details. 
 .
 > 
 > **1-2. Control:**
@@ -89,7 +89,7 @@ drive straight based on the input velocity;
 .
 > **1-3. Laser Scanner Configuration:**
 
-This configuration is defined in the callback function which provide information about distance from obstacles. In this function the laser scanner data is defined in three different area include: front side, left side, and right side which indicate the minimum distance from each side from obstacles. 
+This configuration is defined in the callback function which provides information about distance from obstacles. In this function, the laser scanner data is defined in three different areas include: the front side, left side, and right side which indicates the minimum distance from each side from obstacles.  
 ```C
 for (int  k=300; k<=400; k++){
 	set the minimum distance For front side;
@@ -109,12 +109,12 @@ Based on these ranges, the robot will be avoided from any collision.
 
 > **1-4. Service:**
 
-This is a callback function for our arbitrary service. This service gets two character as inputs, and outputs the desired speed chosen by user.The maximum speed is assumed 5.0 and the minimum is 0.0 (which prohibits the robot to go backward).
+This is a callback function for our arbitrary service. This service gets two characters as inputs and outputs the desired speed chosen by the user. The maximum speed is assumed 5.0 and the minimum is 0.0 (which prohibits the robot to go backward).
 
 ```C
 bool  clbk_speedup(laserscanner_robot_ROS::Speedup::Request  &req, laserscanner_robot_ROS::Speedup::Response  &res){
 
-defining some local variable like minimum and maximum speed;
+defining some local variables like minimum and maximum speed;
 defining some objects of Geometry messages;
 
 if(user ask to increse the speed){ 
@@ -151,7 +151,7 @@ string data
 float32 result
 ```
 The service file contains *String* type data as inputs, and a *float* data as output, which returns the robot's speed.
-Also, this node can be consider as a **Subscriber** from the ***/odom*** topic to receive the monitor the information about the robot's position, orientation ,etc.
+Also, this node can be considered as a **Subscriber** from the ***/odom*** topic to receive the monitor information about the robot's position, orientation, etc.
 
 
 
@@ -164,4 +164,4 @@ The simulation and results are illustrated in the following video:
 
 														    
 ## Further improvements
-To improve performance of the robot movements, some extra conditions can be added, which can make the movements smoother, especially when higher speed level is requested.  
+To improve the performance of the robot movements, some extra conditions can be added, which can make the movements smoother, especially when a higher speed level is requested.    
