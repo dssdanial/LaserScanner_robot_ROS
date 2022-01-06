@@ -13,7 +13,6 @@ int main(int argc, char **argv){
     ros::NodeHandle nh;
     ros::ServiceClient client1 = nh.serviceClient<std_srvs::Empty>("reset_positions");
     ros::ServiceClient client2 = nh.serviceClient<laserscanner_robot_ROS::Speedup>("speed_up");
-    ros::Subscriber sub=nh.subscribe("odom",1,clbk_subs);
     ros::Rate loop_rate(10);
 
     std_srvs::Empty reset;
