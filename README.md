@@ -14,6 +14,9 @@ In this project, it is supposed to move and control this robot autonomously with
 In this project, since multiple terminals and the user interface were needed to be run, a launch file is considered. In order to run and compile the project just do as follows:
 	
 __`roslaunch laserscanner_robot_ROS launchfile.launch`__
+
+**Note:**When extract the package,the directory name should be the same as the above command.	
+	
 ```xml
 <launch>
 <node  name="world"  pkg="stage_ros"  type="stageros"  args="$(find laserscanner_robot_ROS)/world/my_world.world"  />
