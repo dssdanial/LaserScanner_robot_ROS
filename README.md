@@ -15,7 +15,7 @@ In this project, since multiple terminals and the user interface were needed to 
 	
 __`roslaunch laserscanner_robot_ROS launchfile.launch`__
 
-**Note:**When extract the package,the directory name should be the same as the above command.	
+**Note:** When extract the package,the directory name should be the same as the above command.	
 	
 ```xml
 <launch>
